@@ -1,0 +1,64 @@
+<template>
+  <div class="container">
+    <div class="wrap">
+    	<div v-for="item_ in items">
+    	<div class="item" v-for="item in item_" :style="{ background: getcolor(item).bg_color,color:getcolor(item).color}">
+    		<div v-if="item!=0" class="num">{{item}}</div>
+    	</div>
+    	</div>
+    </div>
+  </div>
+</template>
+<script>
+	export default {
+		name:"Game2048",
+	  data () {
+	    return {
+	      msg: 'Welcome to Your Vue.js App'
+	    }
+	  },
+	  methods:{
+		 getcolor:function (val){
+				var color={}
+				switch(val) {
+					case 2:
+						color.color="#776e65"
+						color.bg_color="#eee4da"
+						break
+					case 4:
+						color.color="#776e65"
+						color.bg_color="#ede0c8"
+						break
+					default:
+						color.color="#776e65"
+						color.bg_color="#cdc1b4"
+				}
+				return color
+			}
+	  },
+	}
+</script>
+<style>
+*{margin: 0;padding: 0;}
+.wrap{
+	padding: 0 0 10px 10px;
+	width: 450px;
+	margin: 50px auto;
+	font-size: 0;
+	background-color: #bbada0;
+	border-radius: 5px;
+	clear: both;
+	overflow: hidden;
+}
+.wrap .item{
+	font-size: 80px;
+	font-weight: bolder;
+	float: left;
+	width: 100px;
+	height: 100px;
+	margin: 10px 10px 0 0;
+	background-color: #eee4da;
+	border-radius:3px;
+}
+.wrap .item .num{line-height: 100px;}
+</style>
